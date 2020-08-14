@@ -1,0 +1,50 @@
+import cv2
+import numpy as np
+
+
+def white_filter(frame):
+
+    # BGR 제한 값 설정. OpenCV는 RGB가 아닌 BGR 사용
+    # BGR는 0~255. 0==검정, 255==흰색
+    # 명확하게 하기 위해 255에 가까운 값 아니면 다 검정으로 바꿔버리게 임계값 결과 봐가면서 수정
+    blue_threshold = 120
+    green_threshold = 120
+    red_threshold = 120
+    bgr_threshold = [blue_threshold, green_threshold, red_threshold]
+
+    # 임계값보다 낮으면 검정으로 바꿔줌
+    # 파이썬 줄 끝날 떄 \ 있으면 밑의줄이랑 연결된다는뜻
+    # 1차원 배열로 변환해서 0,1,2 인덱스 순서로 BGR값 임계값보다 낮은얘들 저장함
+    black_thresholds = (frame[:, :, 0] < bgr_threshold[0]) \
+        | (frame[:, :, 1] < bgr_threshold[1]) \
+        | (frame[:, :, 2] < bgr_threshold[2])
+
+    # 흰색 잘보이려고 임계값 위로는 255로 하게 추가함
+    white_thresholds = (frame[:, :, 0] > bgr_threshold[0]) \
+        | (frame[:, :, 1] > bgr_threshold[1]) \
+        | (frame[:, :, 2] > bgr_threshold[2])
+
+    # 설정한 임계값보다 낮은 얘들의 묶음 전부 검정으로 변환
+    # // 높은 얘들의 묶음 전부 흰색으로 변환
+    frame[black_thresholds] = [0, 0, 0]
+    frame[white_thresholds] = [255, 255, 255]
+
+    return frame
+
+
+cap = cv2.VideoCapture("track-s.mkv")
+while(cap.isOpened()):
+    _, original_frame = cap.read()
+    if original_frame is None:
+
+        break
+
+    original_frame = original_frame.astype('uint8')
+    frame = np.copy(original_frame)
+
+    white_filtered_frame = white_filter(frame)
+
+    cv2.imshow("result", white_filtered_frame)
+    cv2.waitKey(1)
+    # plt.imshow(frame)
+    # plt.show()
