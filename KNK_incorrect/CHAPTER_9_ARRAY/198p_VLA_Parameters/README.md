@@ -1,6 +1,6 @@
 # Variable-Length Array Parameters
 
-By using ` *type*   *func_name* (int n, int arr[n])`     
+By using ` /type/  /func_name/(int n, int arr[n])`     
 we can specify `n` as length of paramter `arr`   
    
 If parameter `n` exceed the length of argument `arr`   
