@@ -3,7 +3,7 @@
 char main(){
 	printf("type of main function doesn't has to be \'int\'\n");
 	
-	return '0';
+	return '\0';
 }
 
 /*
