@@ -2,8 +2,8 @@
 
 If a prototype of function is `func(double x)` what would be the return value of function?   
 
-> C89
+> C89   
 If a function's type has undefined, compiler would automaticly its type as `int`   
    
-> C99
+> C99   
 If a function's type has undefined, it would cause **ERROR**
