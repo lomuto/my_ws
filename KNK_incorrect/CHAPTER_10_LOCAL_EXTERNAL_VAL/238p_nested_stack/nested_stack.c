@@ -28,25 +28,24 @@ void pop(){
 int main() {
 	char n;
 	while ((n = getchar()) != '\n') {
-		push(n);
 		if (n == ')' || n == '}' || n == ']') {
 			switch (n) {
 			case ')':
-				if (STACK[ptr - 1] == '(') { pop(); pop(); }
+				if (STACK[ptr] == '(') pop();
 				else {
 					printf("unmatched\n");
 					return 0;
 				}
 				break;
 			case '}':
-				if (STACK[ptr - 1] == '{') { pop(); pop(); }
+				if (STACK[ptr] == '{') pop();
 				else {
 					printf("unmatched\n");
 					return 0;
 				}
 				break;
 			case ']':
-				if (STACK[ptr - 1] == '[') { pop(); pop(); }
+				if (STACK[ptr] == '[') pop();
 				else {
 					printf("unmatched\n");
 					return 0;
@@ -54,6 +53,7 @@ int main() {
 				break;
 			}
 		}
+		else push(n);
 	}
 	if (ptr == -1) {
 		printf("matched!\n");
