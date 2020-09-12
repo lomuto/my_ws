@@ -1,5 +1,5 @@
 # Palindrome   
    
-Palindrome is a letter that in symmetrical condition from its very middle   
+Palindrome is a letter that in symmetrical condition   
       
 Try without using stack next time. 
