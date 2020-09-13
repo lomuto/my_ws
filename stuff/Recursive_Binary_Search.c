@@ -1,3 +1,7 @@
+/*
+재귀함수 호출 시, 이진탐색은 중간지점을 고려하지 않아도 되게 매개변수 넣어 범위 설정.
+*/
+
 #include <stdio.h>
 
 int* R_bsearch(int*, int, int);
