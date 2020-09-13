@@ -7,7 +7,7 @@ int main() {
     int n = sizeof(arr) / sizeof(arr[0]);
     int* ans = R_bsearch(arr, n, 88);
 
-    ans == -1 ? printf("Failure\n") : printf("target's index is %d\n", ans-arr);
+    ans == -1 ? printf("Failure\n") : printf("target's index is %d\n", ans-arr);    // 'ans-arr' will return absolute position of key index 
 }
 int* R_bsearch(int* arr, int n, int key) {
     if (n < 1) {
@@ -17,6 +17,6 @@ int* R_bsearch(int* arr, int n, int key) {
     int middle = n / 2;
 
     if (key == *(arr + middle)) return arr + middle;        // While middle's position is relative, in order to return key's index, return adress of absolute position 
-    else if (key > * (arr + middle)) return R_bsearch(arr + middle + 1, n-middle-1 /*make sure size is not just 'middle'*/, key);       //Use array as Starting point of adress to split array. Adress of `arr+middle+1` would be half point of array
+    else if (key > * (arr + middle)) return R_bsearch(arr + middle + 1, n-middle-1, key);       //Use array as Starting point of adress to split array. Adress of `arr+middle+1` would be half point of array
     else return R_bsearch(arr, middle, key);
 }
