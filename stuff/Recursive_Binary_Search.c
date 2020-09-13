@@ -14,7 +14,7 @@ int* R_bsearch(int* arr, int n, int key) {
         return -1;
     }
 
-    int middle = (n - 1) / 2;         // divide n-1 by 2 instead of n. It helps to understand operation of index easily
+    int middle = (n - 1) / 2;         // divide n-1 by 2 instead of n. It helps to understand operation of index easier
 
     if (key == *(arr + middle)) return arr + middle;        // While middle's position is relative, in order to return key's index, return adress of absolute position 
     else if (key > * (arr + middle)) return R_bsearch(arr + middle + 1, n-middle-1 /*make sure size is not just 'middle'*/, key);       //Use array as Starting point of adress to split array. Adress of `arr+middle+1` would be half point of array
