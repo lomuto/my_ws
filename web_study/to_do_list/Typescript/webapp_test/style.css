@@ -1,0 +1,174 @@
+body{
+    width:720px;
+    background-color: rgb(71, 71, 71);
+    margin: 0 auto;
+}
+
+::-webkit-scrollbar { display: none; }
+
+#header{
+    margin-bottom: 30px;
+}
+
+h2{
+    color:rgb(206, 206, 206);
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 70px;
+    font-size: 35px;
+}
+
+#inputSection{
+    width:inherit;
+    text-align: center;
+}
+
+#inputText{
+    margin-left: 30px;
+    height:33px;
+    width: 450px;
+    background-color: rgb(53, 53, 53);
+    color:rgb(192, 192, 192);
+    font-size: 20px;
+    padding-left: 10px;
+    border: none;
+}
+
+#inputText:focus{
+    outline: none;
+}
+
+#addButton{
+    color:rgb(240, 240, 240);
+    display: inline-block;
+    width:60px;
+    height:36px;
+    line-height: 36px;
+    text-align: center;
+    font-size: 17px;
+    border-radius: 6px;
+}
+
+#addButton:hover{
+    cursor: pointer;
+    background-color: rgb(46, 46, 46);
+    transition: 0.4s;
+}
+
+#header:after{
+    content: "";
+    display: block;
+    width: 80%;
+    text-align: center;
+    border-bottom: 3px solid rgb(39, 39, 39);
+    margin: 20px 0;
+    margin-left: 70px;
+}
+
+#contentWrapper{
+    height:234px;
+    overflow:scroll;
+}
+
+.content{
+    margin: 0 auto;
+    width:570px;
+    height:33px;
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.editBox{
+    display:inline-block;
+    width:80%;
+    height:30px;
+    background-color: rgb(53, 53, 53);
+    color:rgb(192, 192, 192);
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 15px;
+    border-radius: 7px;
+    border: none;
+}
+
+.editBox:focus{
+    outline: none;
+}
+
+.list{
+    display:inline-block;
+    width:80%;
+    height:33px;
+    color:rgb(192, 192, 192);
+    line-height: 33px;
+    font-size: 20px;
+    padding-left: 15px;
+    border-radius: 7px;
+}
+
+.content:hover{
+    cursor: pointer;
+    background-color: rgb(43, 43, 43);
+    transition: 0.4s;
+}
+
+.checkedContent{
+    margin: 0 auto;
+    width:570px;
+    height:33px;
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 7px;
+    background-color: black;
+    color: white;
+    transition: 0.4s;
+}
+
+.checkedContent:hover{
+    cursor: pointer;
+}
+
+.checkedContent .list{
+    text-decoration: line-through;
+}
+
+.fixBox{
+    display:inline-block;
+    text-align: center;
+    width:10%;
+    height:33px;
+    line-height: 33px;
+    color:rgb(192, 192, 192);
+    border-radius: 7px;
+}
+
+.fixBox:hover{
+    cursor: pointer;
+    background-color: rgb(224, 50, 50);
+    text-align: center;
+    color:black;
+    font-size: 16px;
+    font-weight:bold;
+    transition: 0.4s;
+}
+
+.deleteBox{
+    display:inline-block;
+    text-align: center;
+    width:10%;
+    height:33px;
+    line-height: 33px;
+    color:rgb(192, 192, 192);
+    border-radius: 7px;
+}
+
+.deleteBox:hover{
+    cursor: pointer;
+    background-color: rgb(224, 50, 50);
+    text-align: center;
+    color:black;
+    font-size: 16px;
+    font-weight:bold;
+    transition: 0.4s;
+}

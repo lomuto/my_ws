@@ -1,0 +1,53 @@
+{
+  "user": [
+    {
+      "name": "이유진",
+      "scholarNum": "전기전자공학부",
+      "C": "middle",
+      "Python": "low",
+      "JavaScript": "low"
+    },
+    {
+      "name": "이유진",
+      "scholarNum": "전기전자공학부",
+      "C": "middle",
+      "Python": "low",
+      "JavaScript": "low"
+    },
+    {
+      "name": "Chulho Jeong",
+      "scholarNum": "Electricity and Electronic Engineering",
+      "C": "low",
+      "Python": "low",
+      "JavaScript": "low"
+    },
+    {
+      "name": "권민혁",
+      "scholarNum": "컴퓨터공학부",
+      "C": "low",
+      "Python": "middle",
+      "JavaScript": "middle"
+    },
+    {
+      "name": "하승래",
+      "scholarNum": "컴공",
+      "C": "middle",
+      "Python": "low",
+      "JavaScript": "low"
+    },
+    {
+      "name": "Shin Jihye",
+      "scholarNum": "electric-electronics engineering",
+      "C": "middle",
+      "Python": "middle",
+      "JavaScript": "low"
+    },
+    {
+      "name": "강윤석",
+      "scholarNum": "컴공",
+      "C": "high",
+      "Python": "high",
+      "JavaScript": "high"
+    }
+  ]
+}

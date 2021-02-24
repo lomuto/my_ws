@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #container{
+            width:500px;
+            height:500px;
+            border: solid 2px black;
+            margin:80px auto;
+        }
+        #content h1{
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 1px solid black;
+        }
+        #btn-container{
+            display:flex;
+        }
+        .box{
+            margin: 0 auto;
+        }
+        #json{
+            margin-top: 60px;
+            margin-left: 100px;
+        }
+    </style>
+    <script defer src="fetch_script.js"></script>
+</head>
+<body>
+    <div id="container">
+        <div id="content">
+            <h1>JSON AND AJAX</h1>
+            <div id="btn-container">
+                <button class="box" id="showBtn">SHOW</button>
+                <button class="box" id="searchBtn">SEARCH</button>
+                <button class="box" id="addBtn">ADD</button>
+                <button class="box" id="editBtn">EDIT</button>
+                <button class="box" id="deleteBtn">DELETE</button>
+            </div>
+            <div id="json">
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

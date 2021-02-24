@@ -1,0 +1,11 @@
+extends layout/main.pug
+block content 
+    ul 
+        li 
+            a.link(href=ROUTES.html) HTML
+        li
+            a.link(href=ROUTES.css) CSS
+        li
+            a.link(href=ROUTES.js) JAVASCRIPT
+    form(action=ROUTES.intro,method=get)
+        input(type="text",placeholder="Input Name")

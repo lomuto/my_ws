@@ -1,0 +1,31 @@
+header.header 
+    //- div.header_column === .header.column
+    .header_column
+        //-
+            <div class="header_column">
+                <a href="/">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+        a(href=routes.home)
+            i.fab.fa-youtube
+    .header_column 
+        form(action=routes.search, method=get)
+            input(type="text", placeholder="Search by term...", name="term")
+    .header_column
+        if !user.isAuthenticated
+            ul 
+                li 
+                    //- routes.join from res.locals.routes in middleware
+                    a(href=routes.join) Join
+                li 
+                    a(href=routes.login) Log In
+        //- if loged in
+        else
+            ul 
+                li 
+                    a(href=routes.videos+routes.upload) Upload 
+                li
+                    a(href=routes.userDetail(user.id)) Profile 
+                li
+                    a(href=routes.logout) Log Out

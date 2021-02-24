@@ -1,0 +1,18 @@
+//- <p>Hello1</p>
+//- Template Language `pug` turns to HTML tag
+
+//- extend has no quotes
+extends layouts/main.pug
+//- This include's default root path is views. Not where this file is currently at 
+//- So thats why not `../mixins/videoBlock` instead `mixins/videoBlock` 
+include mixins/videoBlock
+
+block content
+    //- videos from `import videosDb from "..db.js" in videoController.js
+    each item in videos
+        +videoBlock({
+            id:item.id,
+            videoFile:item.videoFile,
+            title:item.title,
+            views:item.views
+        })

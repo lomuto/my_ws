@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body{
+            width:720px;
+            margin: 0 auto;
+        }
+        #wrapper{
+            width:500px;
+            height:280px;
+            box-shadow: 1px 1px 8px 1px grey;
+            margin:180px auto;
+        }
+        #id{
+            width:100px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        #pwd{
+            width:100px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="id">
+        </div>
+        <div id="pwd">
+        </div>
+    </div>
+</body>
+<script>
+    const xhr = new XMLHttpRequest();
+    window.onload = ()=>{
+        xhr.open(`GET`,`http://localhost:3000/verify/off`);
+        xhr.onload = ()=>{
+        }
+        xhr.send();
+    }
+</script>
+</html>

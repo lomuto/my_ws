@@ -1,0 +1,9 @@
+mixin videoBlock(objArg = {})
+    //- h1 = objArg.title will show `= objArg.title`
+    //- No white space allowed between init of h1 
+    //- Such a funcking stupid lang pug
+    .videoBlock 
+        a(href=routes.videoDetail(objArg.id))
+            video.videoBlock_thumbnail(src=objArg.videoFile, controls=true)
+            h4.videoBlock_title=objArg.title 
+            h6.videoBlock_views=objArg.views

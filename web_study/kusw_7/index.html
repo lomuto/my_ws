@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    
+    <title>KUSW 7기</title>
+    <style>
+        body{
+            width:960px;
+            margin: 0 auto;
+        }
+        div{
+            width:480px;
+            height:30px;
+            display: flex;
+            justify-content: space-between;
+            margin:0 auto;
+        }
+        input{
+            line-height: 30px;
+            height:18px;
+        }
+        select{
+            margin-top: 5px;
+            display: block;
+            line-height: 30px;
+            height:20px;
+        }
+        #subButton{
+            margin-top: 20px;
+            margin-left: 440px;
+            height:26px;
+            text-align: center;
+        }
+        #wrapper{
+            width:960px;
+            margin:0 auto;
+            display: block;
+        }
+        #content-wrapper{
+            width:960px;
+            display: block;
+        }
+        h3{
+            width:960px;
+            position: static;
+            text-align: center;
+        }
+        form{
+            position: static;
+            width:960px;
+            margin:0 auto;
+            text-align: center;
+        }
+    </style>
+    <script defer>
+        document.addEventListener("keyup",(e)=>{
+            const bt = document.querySelector("#subButton");
+            if(e.keyCode == 13)
+                bt.click();
+        })
+    </script>
+</head>
+<body>
+    <div id="wrapper">
+    <h3>
+        이름과 학과 입력 후 프로그래밍 언어 수준을 골라주세요
+    </h3>
+
+    <form method="POST" action="setInfo">
+        <div>
+            <div>이름</div>
+            <input type="text" name="name">
+        </div>
+        <div>
+            <div>학과</div>
+            <input type="text" name="scholarNum">
+        </div>
+        <div>
+        <div>C언어</div>
+        <select name="C">
+            <option value="high">상</option>
+            <option value="middle">중</option>
+            <option value="low">하</option>
+          </select>
+        </div>
+        <div>
+          <div>파이썬</div>
+        <select name="Python">
+            <option value="high">상</option>
+            <option value="middle">중</option>
+            <option value="low">하</option>
+        </select>
+        </div>
+        <div>
+        <div>자바스크립트</div>
+        <select name="JavaScript">
+            <option value="high">상</option>
+            <option value="middle">중</option>
+            <option value="low">하</option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="제출" id="subButton">
+    </div>
+    </form>
+
+</div>
+</body>
+</html>

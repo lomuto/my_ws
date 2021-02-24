@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: To Do List
+  license:
+    name: MIT
+
+servers:
+  - url: 'http://nathankys.mynetgear.com'
+    description: Main Server
+  - url: 'http://nathankys.mynetgear.com:7700'
+    description: API Server
+
+paths:
+  /api/lists:
+    get:
+      summary: Get all lists.
+      responses:
+        '200':
+          description: A JSON array of lists
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                    content:
+                      type: string
+    post:
+      summary: Creates a list.
+      requestedBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+      response:
+        '200':
+          description: A content string.
+          content:
+            application/json:
+              schema:
+                type: string
+        '404':
+          description: The specified Content is less then 3 characters or empty
+  
+  /api/lists{id}:
+    put:
+      summary: Edit a list.
+      parameters:
+        - id: listId
+          in: path
+          required: true
+          description: The ID of the list to edit.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      requestedBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+      response:
+        '200':
+          description: A content string to replace.
+          content:
+            application/json:
+              schema:
+                type: string
+        '400':
+          description: The specified Content is less then 3 characters or empty
+        '404':
+          description: A list with the specified ID was not found.
+    delete:
+      summary: Delete a list.
+      parameters:
+        - id: listId
+          in: path
+          required: true
+          description: The ID of the list to edit.
+          schema:
+            type: integer
+            format: int64
+            minimum: 1
+      response:
+        '200':
+          description: OK
+        '404':
+          description: A list with the specified ID was not found.

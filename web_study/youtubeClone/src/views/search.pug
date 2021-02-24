@@ -1,0 +1,8 @@
+extends layouts/main.pug
+include mixins/videoBlock
+
+block content    
+    .search_header 
+        h3 Searching for: #{searchingBy}
+    div.search_videos
+        +videoBlock(tVideo)
