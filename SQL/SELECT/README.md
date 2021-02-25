@@ -91,3 +91,62 @@ ASC: 오름차순, DESC: 내림차순
 
 `ORDER BY name DESC, age ASC`  
 로 각각의 컬럼들 정렬조건 다르게 주는거도 가능
+
+---
+
+## LIMIT
+
+보여줄 개수 지정해주는거..
+
+`SELECT address,phone FROM address ORDER BY phone ASC LIMIT 6;`
+
+출력갯수를 6개로 제한해줌
+
+---
+
+## BETWEEN
+
+`WHERE value >= 30 AND value <= 60`  
+==> `WHERE value BETWEEN 30 AND 60`
+
+BETWEEN 다음 첫번째로 오는게 low고 그 다음이 high.  
+BETWEEN 60 AND 30 은 틀린거.
+
+`NOT BETWEEN 30 AND 60` 같이 제외시킬수도 있음
+NOT BETWEEN 을 풀어쓰면 `value < low OR value > high`
+
+날짜 비교도 가능
+
+**ISO 8601 날짜 표준에 따름**
+
+`date BETWEEN '2007-01-02' AND '2007-02-03'`
+
+!!!! **portges SQL 은 날짜에서 `~~ AND '2007-02-03` 이라 함은 02-02 23:59:59 까지임.**
+
+---
+
+## IN
+
+SELECT color FROM table
+WHERE color IN('red','blue') ~~ WHERE color = 'red OR color = 'blue'  
+조건대상이 같은 집합일 때 In으로 묶을 수 있음
+
+---
+
+## LIKE
+
+- ### %
+  WHERE name LIKE 'A%' ==> A로 시작하는 모든거
+  WHERE name LIKE '%a' ==> a로 끝나는 모든거  
+
+- ### \_
+  Single character.  
+  WHERE name LIKE 'harry poter\_' ==> harry poter 1,2,3,4,5...  
+  WHERE name LIKE 'a\_\_' ==> ant, amy, abc, avr  
+
+
+WHERE name NOT ILIKE '\_her%' 처럼 NOT 섞는거도 가능.
+
+**WHERE name LIKE '\_her%' ==> Cherry , Sherri**
+
+**ILIKE 는 대소문자를 구별하지 않음**
