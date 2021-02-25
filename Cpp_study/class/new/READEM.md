@@ -1,5 +1,13 @@
 # new operator
 
+</br>
+
+### **new int(n)** : Returns address of pointer that dereferencing `n`
+
+### **new int[n]** : Returns starting address of array that its size is `n`
+
+</br>
+
 ```cpp
 int* foo = (int*)malloc(SIZE*sizeof(int));
 ```
