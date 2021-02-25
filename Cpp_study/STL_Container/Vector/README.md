@@ -25,3 +25,5 @@ for(vector::iterator i=foo.begin() ; i < foo.end() ; i++){
     cout << foo[i];
 }
 ```
+
+- `const_iterator` : Same iterator, but prevent modifying dereference.
