@@ -26,4 +26,7 @@ for(vector::iterator i=foo.begin() ; i < foo.end() ; i++){
 }
 ```
 
-- `const_iterator` : Same iterator, but prevent modifying dereference.
+- `const_iterator` : Same iterator, but prevent modifying dereference.  
+
+
+## **end() method returns next of the very last element. NOT LAST CAPACITY!**
