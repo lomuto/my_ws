@@ -18,6 +18,8 @@ $ node app.js argv_location
   > `whitehouse` : The White House  
   > `Seoul` : City Seoul
 
+Various languages such `광진구` is also available
+
 ---
 
 <br/>
