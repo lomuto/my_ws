@@ -58,3 +58,36 @@ there are 3ways to export from `moduleFile.js` and import it from other file _wh
    > ```
 
 <br/>
+
+4. Exporting object right through
+
+   > ```js
+   > // 📂 moduleFile.js
+   >
+   > exports.module = {
+   >   name: "yun",
+   >   age: 18,
+   > };
+   > ```
+   >
+   > ```js
+   > // 📂 main.js
+   >
+   > const MODULE = require("./moduleFile.js");
+   >
+   > console.log(MODULE.name); // "yun"
+   > console.log(MODULE.age); // 18
+   > ```
+   >
+   > OR
+   >
+   > ```js
+   > // 📂 main.js
+   >
+   > const { name, age } = require("./moduleFile.js");
+   >
+   > console.log(name); // "yun"
+   > console.log(age); // 18
+   > ```
+
+<br/>
