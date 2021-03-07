@@ -1,6 +1,6 @@
 const request = require("request");
 
-const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${process.argv[2]}.json?access_token=pk.eyJ1IjoieXVuc3VrMDYxNiIsImEiOiJja2x6MHg2ZmUwOWl6MnlvOWIwNHhycXpmIn0.LduNXS6x6Q9zOFs6xjMNTQ&language=ko`
+const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURIComponent(process.argv[2])}.json?access_token=pk.eyJ1IjoieXVuc3VrMDYxNiIsImEiOiJja2x6MHg2ZmUwOWl6MnlvOWIwNHhycXpmIn0.LduNXS6x6Q9zOFs6xjMNTQ&language=ko`
 
 const getCor = (url)=>{
     return new Promise((resolve,rej)=>{
