@@ -7,6 +7,11 @@
 
 </br>
 
+1. Get the longitude and latitude from certain keyword
+2. Get the weather information from longitude and latitude
+
+</br>
+
 ```
 $ node app.js argv_location
 ```
