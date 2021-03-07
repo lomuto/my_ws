@@ -15,7 +15,7 @@ const calc = {
 
 there are 3ways to export from `moduleFile.js` and import it from other file _which is in same directory_
 
-1. `module.export = calc`
+1. `module.exports = calc`
 
    > ```javascript
    > // Exported as `clac` but importing with different name is available
@@ -27,7 +27,7 @@ there are 3ways to export from `moduleFile.js` and import it from other file _wh
 
 <br/>
 
-2. `module.export = {calc}`
+2. `module.exports = {calc}`
 
    > ```javascript
    > // Fix the name of moduled file
@@ -39,7 +39,7 @@ there are 3ways to export from `moduleFile.js` and import it from other file _wh
 
 <br/>
 
-3. `exports.calcModule = calc`
+3. `module.calcModule = calc`
 
    > ```javascript
    > // Send it as gloabal object
@@ -64,7 +64,7 @@ there are 3ways to export from `moduleFile.js` and import it from other file _wh
    > ```js
    > // 📂 moduleFile.js
    >
-   > exports.module = {
+   > module.exports = {
    >   name: "yun",
    >   age: 18,
    > };
