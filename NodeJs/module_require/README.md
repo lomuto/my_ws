@@ -1,26 +1,49 @@
 # 3 ways to export and require moudle
 
-let `moduleFile.js` as
-
 ```javascript
+// 📂 moduleFile.js
+
 const calc = {
-  add(a, b) { return a + b },
-  sub: (a, b) => { return a - b }
+  add(a, b) {
+    return a + b;
+  },
+  sub: (a, b) => {
+    return a - b;
+  },
 };
 ```
 
-there are 3ways to export from `moduleFile.js` and require from other file _which is in same directory_
+there are 3ways to export from `moduleFile.js` and import it from other file _which is in same directory_
 
 1. `module.export = calc`
 
    > ```javascript
+   > // Exported as `clac` but importing with different name is available
+   >
    > const improtedModule = require(`./moduleFile`);
    > improtedModule.add(1, 2);
    > improtedModule.sub(1, 2);
    > ```
 
-2. `exports.calcModule = calc`
+<br/>
+
+2. `module.export = {calc}`
+
    > ```javascript
+   > // Fix the name of moduled file
+   >
+   > const { calc } = require(`./moduleFile`);
+   > calc.add(1, 2);
+   > calc.sub(1, 2);
+   > ```
+
+<br/>
+
+3. `exports.calcModule = calc`
+
+   > ```javascript
+   > // Send it as gloabal object
+   >
    > const importedModule = require(`./moduleFile`);
    > importedModule.calcModule.add(1, 2);
    > importedModule.calcModule.sub(1, 2);
@@ -33,3 +56,5 @@ there are 3ways to export from `moduleFile.js` and require from other file _whic
    > calcModule.add(1, 2);
    > calcModule.sub(1, 2);
    > ```
+
+<br/>
