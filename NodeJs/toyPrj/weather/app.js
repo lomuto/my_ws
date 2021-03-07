@@ -6,13 +6,13 @@ const geoUrl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${encodeURICom
 const getCor = (url)=>{
     return new Promise((resolve,rej)=>{
         request.get(url,(err,res,body)=>{
-            console.log(body)
             if(JSON.parse(body).features.length === 0){
                 rej(ERR("Invalid name of location"));
                 return ;
             }
             const data = JSON.parse(body).features[0].center;
             resolve(data);
+            rej(err);
         });
     })
 }
