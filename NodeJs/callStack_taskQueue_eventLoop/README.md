@@ -53,7 +53,8 @@ After two `setTimeout` moved to apis, it executed and time reduces. `setTimeout`
 `TASK QUEUE`  (head) | console.log("Hello 0") | console.log("Hello 2000") | (tail)
 ```
 
-Atfer some task queued to `task-queue`, `event-loop` moves them to `call-stack`. And as I mentioned before, **Event loop won't run untill call stack is empty.**
+Atfer some task queued to `task-queue`, `event-loop` moves them to `call-stack`. And as I mentioned before, **Event loop won't run untill call stack is empty.**  
+_And `Render-Queue` keep tracking of whether `stack-queue` is empty or not_
 
 So after executing `console.log("Starting")` and `console.log("Stopped")`, tasks in `task-queue` dequeued in sequence starting from head.
 
