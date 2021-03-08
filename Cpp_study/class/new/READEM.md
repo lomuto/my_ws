@@ -62,3 +62,17 @@ delete [] bar;
 When it comes to use `delete` in array,  
 **Its essential to use bracket [] to letting know `delete` that not to deallocate just first element of array**  
 (`delete bar` will deallocate only `bar+0` memory while cause memory leak by leaving `bar+1`.`bar+2`,`bar+3`)
+
+</br>
+
+---
+
+</br>
+
+```cpp
+int* foo = (int*)calloc(10,sizeof(int));
+int* bar = new int[10]{};
+```
+
+While `calloc` is `malloc` + `memset`,  
+initialize whole memory to `0` could be done by `{}` **Uniform initializer**.
