@@ -5,7 +5,7 @@
 > 1. powerlevel10k 설치
 >
 > ```
-> $ git clone https://github.com/romkatv/powerlevel10k git ~/.oh-my-zsh/themes/powerlevel10k
+> $ git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/themes/powerlevel10k
 > ```
 >
 > 2. `~/.zshrc` 에서 `ZSH_THEME="powerlevel10k/powerlevel10k"` 으로 수정
