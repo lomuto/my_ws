@@ -26,7 +26,17 @@ for(vector::iterator i=foo.begin() ; i < foo.end() ; i++){
 }
 ```
 
-- `const_iterator` : Same iterator, but prevent modifying dereference.  
-
+- `const_iterator` : Same iterator, but prevent modifying dereference.
 
 ## **end() method returns next of the very last element. NOT LAST CAPACITY!**
+
+---
+
+```cpp
+vector<int> v;
+v.reserve(5);
+```
+
+Even though vector `v` has reserved its size,
+
+### **You can't use `=` operator to v[i] like normal array. Must use `push_back()`**
