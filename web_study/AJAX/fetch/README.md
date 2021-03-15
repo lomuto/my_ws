@@ -31,7 +31,7 @@ fetch(`http://myServer.com/api`)
    
 Fetch API basically takes two parameters as `url` and `setting Object`   
 method for API such as `GET`,`POST`,`PUT` defined in `setting Object`, but for this case, its method is `GET`   
-and **by default `fetch` use `GET` method for skipping the second parameter**   
+and **by default `fetch` use `GET` method for omitting the second parameter**   
    
 Fetch API returns a Promise object so we can get its resolve argument with `response` in `.then()`   
    
