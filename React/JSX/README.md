@@ -117,3 +117,17 @@ TO
 ```
 
 As JSX's style attribute is a property of object, delimiter of each attribute changed [`;`] -> [`,`]
+
+<br/>
+
+---
+
+<br/>
+
+![image](./issue.PNG)
+
+There is still an issue that using `class` in html attribute to `className` and `for` to `htmlFor`
+
+It is because javascript has same syntax with `class` and `for` as keyword too.
+
+React these days is intelligence enough to distinct `class` and `for` to whether its html attribute or JS syntax, but still needs to be cautious about it.
