@@ -56,11 +56,11 @@ In our project folder, we can see `index.js` in `src` folder. **Inorder to run r
 import React from "react";
 import ReactDOM from "react-dom";
 
-const App = ()=>{
-    return <div>Hello React!<div/>
+const App = () => {
+  return <div>Hello React!</div>;
 };
 
-ReactDOM.render(<App />,document.querySelector("#root"));
+ReactDOM.render(<App />, document.querySelector("#root"));
 ```
 
 This could be the basic code of print "Hello react" on browser.
@@ -69,5 +69,5 @@ Let's focus on `ReactDOM.render()`
 
 `<App />` is equal to `App()`. So it just returns a HTML string.
 
-`document.querySelector("#root")` indicates a `<div id="root"><div/>` in `%MY_APP%/public/index.html`  
+`document.querySelector("#root")` indicates a `<div id="root"></div>` in `%MY_APP%/public/index.html`  
 Every jsx go inside of `document.querySelector("#root")` will be taken care of react.
