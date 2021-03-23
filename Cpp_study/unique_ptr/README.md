@@ -30,6 +30,15 @@ unique_ptr<int> foo(new int);
 unique_ptr<int> foo = make_unique<int>();
 ```
 
+So basically,  
+`unique_ptr<int> foo = make_unique<int>();` is same as
+
+```cpp
+unique_ptr<int> foo;
+int* temp = new int;
+foo = unique_ptr<int>(temp);
+```
+
 <br/>
 
 ---
