@@ -16,6 +16,24 @@ Such `foo`'s allocated memory in heap will be returned automatically when proces
 
 ---
 
+<br/>
+
+- ### Initialization and assignment
+
+```cpp
+// init
+unique_ptr<int> foo(new int);
+```
+
+```cpp
+// assign
+unique_ptr<int> foo = make_unique<int>();
+```
+
+<br/>
+
+---
+
 <br/>   
    
 ## **unique_ptr with vector**
