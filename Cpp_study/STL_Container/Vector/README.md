@@ -5,9 +5,9 @@
 - `vector<type> foo` : Creates a vector container `foo`
 
 - `foo.reserve(n)` : Make `n` spaces for vector container. While size of vector is managed similar with `string`   
-  **reserve doesn't come up with initialization and allocate spaces.**   
-  dereference foo[3] with following `foo.reserve[10]` yield segmentationfault error.
-  This enables optimization at compile prcoess.
+  This enables optimization at compile prcoess.   
+   **reserve doesn't come up with initialization and allocate spaces.**   
+  dereference `foo[3]` with following `foo.reserve[10]` yield segmentationfault error.
    
 - `foo.resize(n)` : Set a size of vector with initialize all element as 0
    
