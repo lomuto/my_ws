@@ -70,9 +70,17 @@ Foo::Foo(int n, int& arg)   // ERROR
 This code is allocation, not initialization.
 
 ```cpp
-Foo::Foo(int n, int& arg)
+Foo::Foo(int n, int& arg)``
 :num(n), bar(arg){
 }
 ```
 
 This is initialization.
+
+---
+
+```cpp
+Foo arrOfFoo[5];
+```
+
+initialize class instance with bracket will create an array of class instance with **call a construct function of every element of class** ( same syntax with java would leave empty spaces while Java returns a reference of array of classes `/*Java*/` Foo\* arrOfFoo[5]`)
