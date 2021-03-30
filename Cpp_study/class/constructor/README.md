@@ -83,4 +83,4 @@ This is initialization.
 Foo arrOfFoo[5];
 ```
 
-initialize class instance with bracket will create an array of class instance with **call a construct function of every element of class** ( same syntax with java would leave empty spaces while Java returns a reference of array of classes `/*Java*/` Foo\* arrOfFoo[5]`)
+initialize class instance with bracket will create an array of class instance with **call a construct function of every element of class** ( same syntax with java would leave empty spaces while Java returns a reference of array of classes `/*Java*/ Foo* arrOfFoo[5]`)
