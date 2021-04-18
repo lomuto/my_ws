@@ -37,3 +37,35 @@ pair<char,string>
 
 `Enter`일때는 단어가 3개인데 `Leave` 일때는 단어가 두개이다.  
 문제 잘 읽고 이런거 빼놓지말자...
+
+<br/>
+
+---
+
+<br/>
+
+# 21.4.8 문제풀었음. 풀이 업데이트
+
+```cpp
+vector<pair<string,string>> LOG;
+```
+
+명령어 ( `Enter,Leave` ) 를 저장하는 첫번째 문자열과 `userId`를 저장하는 출력 될 상태를 나타내는 `LOG` 벡터  
+ex) `["Enter","user1428"]`
+
+<br/>
+
+```cpp
+map<string,string> INFO;
+```
+
+`Change` 시 `userId` **key**값에 따라 **nickname**을 업데이트 해줄 `INFO` map.  
+ex) `["user1428","Prodo"]`
+
+이렇게 크게 두가지 자료구조를 활용.
+
+```cpp
+INFO[LOG[i].second] // i번째 로그의 userid 에 따른 변경된 최종 nickname 반환
+```
+
+마지막에 출력문자열을 `answer`에 push 시 최종 nickname을 반환하는 형태로 map이 사용된다.
