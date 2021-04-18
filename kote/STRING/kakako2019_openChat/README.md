@@ -62,10 +62,47 @@ map<string,string> INFO;
 `Change` 시 `userId` **key**값에 따라 **nickname**을 업데이트 해줄 `INFO` map.  
 ex) `["user1428","Prodo"]`
 
+<br/>
+
 이렇게 크게 두가지 자료구조를 활용.
+
+<br/>
 
 ```cpp
 INFO[LOG[i].second] // i번째 로그의 userid 에 따른 변경된 최종 nickname 반환
 ```
 
 마지막에 출력문자열을 `answer`에 push 시 최종 nickname을 반환하는 형태로 map이 사용된다.
+
+---
+
+<br/>
+
+`"Enter user1248 Prodo"`  
+다음과 같은 문자열을 `strtok`함수로 공백을 잘라 `명령어, userId, nickname` 이렇게 받아도 되지만  
+**명령어의 규격이 정해짐에 따라 `LOG[i][0] == 'E'` 일 경우 `ENTER` 명령어임을, `LOG[i][6]` 부터는 userId 임을 활용하는게 더 간단하다.**
+
+<br/>
+
+```
+"Enter user1248 Prodo"
+```
+
+다음과 같은 문자열에 대해
+
+```cpp
+int p;
+for(p=6 ; LOG[i][p] != ' ' ; p++)
+    userId += LOG[i][p]
+```
+
+을 하면 `userId`에 `user1248` 만 저장이 되고
+
+`Prodo` 같은 닉네임의 경우는 문자열의 끝 이므로
+
+```cpp
+for(/*p는 위에서 이어지는 공백을 가리키는 p*/ p++ ; p<LOG[i].size() ; p++)
+    nickname += LOG[i][p]
+```
+
+현 문자열의 길이 전 까지만 문자를 가리키는 pivot `p` 를 움직이묜 된다.
