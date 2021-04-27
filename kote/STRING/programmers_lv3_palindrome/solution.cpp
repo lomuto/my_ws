@@ -1,33 +1,28 @@
 #include <bits/stdc++.h>
+
 using namespace std;
 
-int palindrome(const string &s) {
-    int SIZE = s.size();
-    pair<int, int> p{0, SIZE - 1};
-    int init_p_sec = p.second;
-    for (int i = 0; i < SIZE; i++) {
-        p.second = init_p_sec - i;
-        for (int j = 0; p.second + j < SIZE; j++) {
-            int flag = 1;
-            int left = p.first + j;
-            int right = p.second + j;
-            while (left < right) {
-                if (s[left] == s[right]) {
-                    left++;
-                    right--;
-                } else {
-                    flag = 0;
-                    break;
-                }
-            }
-            if (flag)
-                return p.second - p.first + 1;
-        }
+string str;
+
+bool is_palindrome(int st, int end) {
+    while (st < end) {
+        if (str[st++] != str[end--])
+            return 0;
     }
+    return 1;
 }
 
 int solution(string s) {
-    int answer = palindrome(s);
-
-    return answer;
+    str = s;
+    int answer = 0;
+    int LEN = s.size();
+    int MAX = 0;
+    for (int len = LEN - 1; len; len--) {
+        for (int st = 0, end = st + len; end < LEN; st++, end++) {
+            // cout << "st: " << st <<" end: " << end << '\n';
+            if (is_palindrome(st, end))
+                return end - st + 1;
+        }
+    }
+    return 1; // for문 다 돌아도 없으면 팰린드롬 없는 문자열 == 최대 펠린드롬의 길이는 1
 }
