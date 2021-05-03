@@ -181,7 +181,7 @@ To the bottom line, same named `printName` yields an different execution in diff
 
 Others might argue that why would someone do stupid things that referencing derived class with type of parent class.
 
-Suppose we have class `B,C,D` which derived from `A` with overloaded method in `A`.  
+Suppose we have class `B,C,D` which derived from `A` with overrided method in `A`.  
 If we have to execute same method in `B,C,D` that derived from `A`
 
 ```cpp
