@@ -36,7 +36,7 @@ Same process, but some extras in inital one.
    
 </br>   
    
-Assume that randomly choosen index is `5`.   
+Assume that randomly choosen index is `3`.   
 Swap its element with first element( index `0` ).   
    
 
