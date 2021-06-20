@@ -24,22 +24,27 @@ void Q_sort(int *arr, int st, int end) {
     Q_sort(arr, left + 1, end);
 }
 
-void Qdiff_sort(int *arr, int st, int end) {
-    if (st >= end)
-        return;
-    int target = arr[st];
-    int left = st + 1; // 이렇게 left를 st+1 에서 시작하려면
-    int right = end;
-    while (left < right) {
-        while (target < arr[right])
-            right--;
-        while (left < right && target >= arr[left])
-            left++;
-        SWAP(arr + left, arr + right);
-    }
-    if (arr[left] > arr[right]) // 막판 swap은 left가 right보다 클 때 진행해주어야 함. 정렬이 된 segment 크기가 2일 때 바로 여기로 넘어가니끼
-                                // [2,4] 일 때 여기 조건문 없으면 [4,2] 되면서 일부 정렬안되고 넘어가버림
-        SWAP(arr + st, arr + left);
-    Q_sort(arr, st, left - 1);
-    Q_sort(arr, left + 1, end);
-}
+/*
+*   이거 정렬오류남
+*   당장 원인은 모르겠는데 일단 위에꺼만 써야함
+*/
+
+// void Qdiff_sort(int *arr, int st, int end) {
+//     if (st >= end)
+//         return;
+//     int target = arr[st];
+//     int left = st + 1; // 이렇게 left를 st+1 에서 시작하려면
+//     int right = end;
+//     while (left < right) {
+//         while (target < arr[right])
+//             right--;
+//         while (left < right && target >= arr[left])
+//             left++;
+//         SWAP(arr + left, arr + right);
+//     }
+//     if (arr[left] > arr[right]) // 막판 swap은 left가 right보다 클 때 진행해주어야 함. 정렬이 된 segment 크기가 2일 때 바로 여기로 넘어가니끼
+//                                 // [2,4] 일 때 여기 조건문 없으면 [4,2] 되면서 일부 정렬안되고 넘어가버림
+//         SWAP(arr + st, arr + left);
+//     Q_sort(arr, st, left - 1);
+//     Q_sort(arr, left + 1, end);
+// }
