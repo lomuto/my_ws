@@ -2,7 +2,7 @@
 
 `priority_queue<T,vector<T>,compare> pq`
 
-Unlike the other container's compareator, passing a function to third paramter `compare` is illegal.
+Unlike the other container's comparator, passing a function to third paramter `compare` is illegal.
 
 ```cpp
 priority_queue<int, vector<int>, [](int a,int b){return a>b;}> pq;
