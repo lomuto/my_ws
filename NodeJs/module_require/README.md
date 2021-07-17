@@ -30,11 +30,15 @@ there are 3ways to export from `moduleFile.js` and import it from other file _wh
 2. `module.exports = {calc}`
 
    > ```javascript
-   > // Fix the name of moduled file
+   > // exports object and import as destructure syntax
    >
    > const { calc } = require(`./moduleFile`);
    > calc.add(1, 2);
    > calc.sub(1, 2);
+   >
+   > // const calc = require(`./moduleFile`);
+   > // calc.calc.add(1,2);
+   > // Both are same
    > ```
 
 <br/>
