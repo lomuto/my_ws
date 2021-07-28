@@ -7,7 +7,12 @@ Find a shortest path through all vertices to other verticies.
 <br/>
 
 1. Creates a grid for weight of edges and initialize grid with adjacent verticies
-   ![grid](./images/gridInit.PNG)
+
+<br/>
+
+![grid](./images/gridInit.PNG)  
+(Except grid[a][a], shown `0` in grid would be initialized as `INF`)
+
 2. Loop grid with stage `k`.  
    Stage `k` stands for **way point** of verticies.
 
