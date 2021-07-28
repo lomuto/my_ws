@@ -1,4 +1,4 @@
-# Floyd-Warshel (All Pair Shortest Path)
+# Floyd-Warshall (All Pair Shortest Path)
 
 ![graph](./images/graph.PNG)
 
