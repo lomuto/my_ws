@@ -1,4 +1,4 @@
-# Dijkstra
+# Dijkstra (Single Source Shortest Path)
 
 ![graph](./images/graph.PNG)
 
