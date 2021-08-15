@@ -1,5 +1,9 @@
 # Tuple
 
+Basic concept of tuple is as same as `pair` in Cpp
+
+<br/>
+
 ```ts
 let foo: string | number;
 foo = 1; // Legal
