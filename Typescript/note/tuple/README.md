@@ -44,3 +44,14 @@ Array `foo` must have number for first element and string for second.
 Modifing its element is OKAY as long as tuple set is legal.  
 But if pushing an element is also legal? **Yes**  
 If its not initialize it as `[1'Hello',4]` like adding an extra element, TS can't pushing an element.
+
+---
+
+### Tuple can't prevent its array from `push` operation.
+
+```ts
+const myTuple: [string, number] = ["Hello", 3];
+myTuple.push("Can I push this to tuple?"); // no error
+```
+
+Sadly, tuple type can't prevent user from pushing another element to its array. This is where user must be aware of.
