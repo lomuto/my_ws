@@ -21,8 +21,8 @@ var Foo;
 })(Foo || (Foo = {}));
 ```
 
-Its hard to understand, but to be short,  
-**Foo.ADMIN === 0** and **Foo[0] === ADMIN**
+`enum` is typesciprt is kind of **hashMap** with its key can be approached with value and vice versa,  
+**Foo.ADMIN === 0** and **Foo[0] === ADMIN** with **Foo["ADMIN"] = 0**
 
 ---
 
@@ -59,4 +59,4 @@ enum Foo {
 ```
 
 `Foo.ADMIN` will return `administrator` but **not in viceversa**.  
-Approaching `Foo` with "administrator" is impossible
+Approaching `Foo` with "administrator" could be done as **Foo["administrator"]** as index bracket with string
