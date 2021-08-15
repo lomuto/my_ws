@@ -55,3 +55,12 @@ myTuple.push("Can I push this to tuple?"); // no error
 ```
 
 Sadly, tuple type can't prevent user from pushing another element to its array. This is where user must be aware of.
+
+But at least...
+
+```ts
+const myTuple: [string, number] = ["Hello", 3];
+myTuple.push(true); // compile error
+```
+
+Tuple's type is set as `string` and `number` only, it can prevents from other incompatible types in tuple being pushed.
