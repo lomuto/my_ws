@@ -1,5 +1,7 @@
 # Function type
 
+## Basic concept of function type
+
 ```ts
 let someFunction: Function;
 ```
@@ -28,3 +30,21 @@ If our intention was to assign `foo` to `someFunction`, typescript can't throw a
 let someFunction: (arg0: number, arg1: number) => number;
 ```
 We can solve problem by explicitly define a prototype of function variable with specific function type as `(...argType) => returnType`
+
+## Callback and void return type
+
+```ts
+const func = (arg: number, cb:(arg: number) => void): number {
+  ///
+  return arg;
+}
+
+func(3, (a) => {
+  return a; // Would this be an error?
+})
+```
+
+Such function `func` has call back function for second parameter whose return type is `void`. But what if i call `func` with **call back function with which returns something?**
+
+The answer is **typescript would not throw an error** because declaring `func` with its second call back function's return type as void is explicitly showing nothing more than **return value from second callback will not be used inside this function.**  
+So calling `func` with call back function which returning `number` is still fine, and doing something meaningful inside `func` with those return value is still fine(in that case return type of `cb` in `func` has to be changed from `void` to other type)
