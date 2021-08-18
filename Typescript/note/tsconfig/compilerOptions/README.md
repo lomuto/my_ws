@@ -149,3 +149,9 @@ Second param of bind: Pre-defined first argument of function handler
 */
 btn.addEventListener("click", handler.bind(null, "Hello")); // Forces user to set second argument of bind function
 ```
+
+<br/>
+
+### noUnusedLocals, Parameters, ImplicitReturns
+
+This forces programmer to not leave begind unused variables and parameters. Just like the one from intelliJ.
