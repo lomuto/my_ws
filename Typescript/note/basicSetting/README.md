@@ -1,4 +1,4 @@
-1. `$ npm install typescript --save-dev`
+1. `$ tsc --init`
 2. _tsconfig.json_
 
 ```json
