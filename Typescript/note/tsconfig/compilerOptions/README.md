@@ -129,3 +129,21 @@ const btn = document.querySelector("button")!;
 - strictNullChecks:  
   such case above, `!` at the end of line is forced. Cause typescript won't know whether there is `button` element in current document. So `!` guarantees typescript that such element exists, so don't make an error.  
   This situation happens because if there is no button element, then **expression will return null**. strictNullCheks won't allow single chance of variable holding a _null_
+
+<br/>
+
+- strictBindCallApply:  
+  Prevents user from accidently bind wrong object.
+
+```ts
+const handler = (message: string) => {
+  console.log(`Message: ${message}`);
+};
+
+/*
+First param of bind: Object to bind. In this case, binded object is unnecessary so pass null.
+
+Second param of bind: Pre-defined first argument of function handler
+*/
+btn.addEventListener("click", handler.bind(null, "Hello")); // Forces user to set second argument of bind function
+```
