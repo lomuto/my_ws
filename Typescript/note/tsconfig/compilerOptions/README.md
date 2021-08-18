@@ -116,6 +116,8 @@ If typescript file has error, compiler would not emit a `.js` file
 
 Strictness of compilation process.
 
+If `strict` option has set to _true_, that means all those upcoming secondaey options are also true.
+
 - noImplicitAny:  
   Prohibits `any` type in paramter.  
    The reason why it only works it parameter is that type of global variable can be dynamcially tracked in runtime, while **function parameter has to be defined in its initialzation**
