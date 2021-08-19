@@ -37,3 +37,27 @@ this is great, but hard to read
 const arr1 = [...arr0];
 ```   
 Such `forEach` statement above could be written in neat way using spread operator.
+   
+<br/>      
+   
+### Spread operator in object   
+   
+Spread operator is also useful in deep coping object.   
+   
+``` js
+const person0 = {
+    name: 'yun',
+    age: 18
+};
+
+const person1 = { ...person0 };
+
+person0.name = 'kang';
+
+console.log(person0); // yun, 18
+console.log(person1); // kang, 18
+
+```
+You can see the `person1` has deep copied.
+
+```
