@@ -1,4 +1,4 @@
-# Object Destruction
+## Object
 
 ```js
 class Foo {
@@ -38,3 +38,23 @@ const = {
 ```
 
 This will do.
+
+  <br/>
+
+## Array
+
+```js
+const arr0 = [1, 2];
+const [e0, e1] = arr0;
+```
+
+Destructuring array is as same as object.
+
+One fanct part is...
+
+```js
+const arr0 [1,2,3,4,5,6];
+const [e, ...remain] = arr0;
+```
+
+variable `e` is assigned `1` while `remain` has assigned as array in element of `2,3,4,5,6`
