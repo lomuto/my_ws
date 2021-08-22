@@ -8,7 +8,7 @@ class foo {
 
 `const` keyword is not provided in typescript.
 
-If we want **property to remians unmutable after initialization**, this is where `readonly` keyword comes in.
+If we want **property to remiansW unmutable after initialization**, this is where `readonly` keyword comes in.
 
 <br/>
 
