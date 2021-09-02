@@ -1,0 +1,9 @@
+{
+    ...
+    "scripts": {
+      "start":"node index.js",
+      "prestart":"npx tsc",
+      "test": "tsc-watch --onSuccess \" node dist/index.js\" "
+    }
+    ...
+  }
