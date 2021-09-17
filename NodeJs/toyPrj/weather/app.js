@@ -29,6 +29,7 @@ const getWeather = url =>{
             return ;
         }
         const data = JSON.parse(body).current;
+        console.log(data);
         const {temperature} = data;
         console.log(`Current temperature is ${temperature} and chance of rain in ${data.precip}%`);
     });

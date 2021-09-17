@@ -16,7 +16,7 @@ inorder to make SWAP function, we passes parameters as _pointer_.
 This might cause two problems.
 
 1. `SWAP(null,foo)`  
-   This could cause unexpected run time error.  
+   This could cause unexpected run time error.
 
 2. Invading unallocated memory
 

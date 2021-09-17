@@ -3,4 +3,4 @@ const calc = {
     sub(a,b){return a-b;}
 }
 
-exports.calcModule = calc;
+module.exports = {calc};

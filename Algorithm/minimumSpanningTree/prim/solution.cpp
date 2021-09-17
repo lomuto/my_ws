@@ -35,6 +35,11 @@ long long getMstWeight() {
     }
     isSubsetOfMst.insert(rootOfMst);
 
+    /*
+        vertexCnt를 아니까
+        loop의 종료조건을 mst에 vertex 추가될 때 마다 카운팅 하고
+        그 카운트가 vertexCnt - 1 일 때 종료하는게 더 빠를듯...
+    */
     while (!pq.empty()) {
         int now = pq.top().first;
         int weight = pq.top().second;

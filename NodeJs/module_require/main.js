@@ -1,3 +1,3 @@
-const { calcModule } = require(`./moduleFile`);
+const module = require(`./moduleFile`);
 
-console.log(calcModule.add(a,b));
+console.log(module.calc.add)
