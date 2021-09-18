@@ -12,16 +12,19 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createTodo = void 0;
 const promises_1 = require("fs/promises");
 const todo_1 = require("../models/todo");
+/*
+    RequestHandler라는 @types/express에서 제공해주는 핸들러 콜백 interface가 있다.
+*/
 const createTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const text = req.body.text;
         const newTodo = new todo_1.Todo(Math.random().toString(), text);
-        const db = yield promises_1.readFile('./dataBase/TODOS.json');
+        const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
         const table = JSON.parse(db.toString());
         table.push(newTodo); // 어차피 object니까 클래스 개체여도 갖다 박을 수 있구나
         const updatedTable = Buffer.from(JSON.stringify(table, null, 4));
-        yield promises_1.writeFile('./dataBase/TODOS.json', updatedTable);
-        return res.status(201).json({ message: 'list added successfully' });
+        yield promises_1.writeFile('./src/dataBase/TODOS.json', updatedTable);
+        return res.status(201).json({ message: 'list added successfully', todo: newTodo });
     }
     catch (e) {
         console.log(e);
