@@ -1,11 +1,13 @@
 import { Router } from 'express';
-import { createTodo } from '../controllers/todo';
+import { createTodo, getTodos } from '../controllers/todo';
 
 const router = Router();
 
 router.post('/', createTodo);
 
-router.get('/');
+router.get('/:id', getTodos);
+
+router.get('/', getTodos);
 
 /*
     자원의 전체 교체: put
