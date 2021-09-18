@@ -2,6 +2,9 @@ import { RequestHandler} from "express";
 import { readFile, writeFile } from "fs/promises";
 import { Todo } from '../models/todo';
 
+/*
+    RequestHandler라는 @types/express에서 제공해주는 핸들러 콜백 interface가 있다.
+*/
 export const createTodo: RequestHandler = async (req, res) => {
     try{
         const text = (req.body as {text: string}).text;
