@@ -16,7 +16,7 @@ import { Todo } from '../models/todo';
     Generic in Request handelr: Tell ts that
      request.params has such object key value with given type
 */
-export const getTodos: RequestHandler<({ id: string })> = async (req, res, next) => {
+const getTodos: RequestHandler<({ id: string })> = async (req, res, next) => {
     try{
         const db = await readFile('./src/dataBase/TODOS.json');
         const todos: Todo[] = JSON.parse(db.toString());
@@ -39,7 +39,7 @@ export const getTodos: RequestHandler<({ id: string })> = async (req, res, next)
     }
 }
 
-export const createTodo: RequestHandler = async (req, res, next) => {
+const createTodo: RequestHandler = async (req, res, next) => {
     try{
         /*
             Type casting in ts with `as` keyword
@@ -73,7 +73,7 @@ export const createTodo: RequestHandler = async (req, res, next) => {
     }
 }
 
-export const patchTodo: RequestHandler<({ id: string })> = async (req, res, next) => {
+const patchTodo: RequestHandler<({ id: string })> = async (req, res, next) => {
     try{
         if(req.params.id === undefined) {
             throw new Error(`No given params sent to url`);
@@ -105,7 +105,7 @@ export const patchTodo: RequestHandler<({ id: string })> = async (req, res, next
     }
 }
 
-export const deleteTodo: RequestHandler<( {id: string} )> = async (req, res, next) => {
+const deleteTodo: RequestHandler<( {id: string} )> = async (req, res, next) => {
     try{
         const todoId = req.params.id;
 
@@ -134,5 +134,11 @@ export const deleteTodo: RequestHandler<( {id: string} )> = async (req, res, nex
     } catch(e) {
         next(e);
     }
-        
 }
+
+export default {
+    getTodo: getTodos,
+    createTodo: createTodo,
+    patchTodo: patchTodo,
+    deleteTodo: deleteTodo
+};
