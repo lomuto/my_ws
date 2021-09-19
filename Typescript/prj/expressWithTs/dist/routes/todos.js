@@ -11,5 +11,5 @@ router.get('/', todo_1.getTodos);
     자원의 일부 교체: patch
 */
 router.patch('/:id', todo_1.patchTodo);
-router.delete('/:id');
+router.delete('/:id', todo_1.deleteTodo);
 exports.default = router;

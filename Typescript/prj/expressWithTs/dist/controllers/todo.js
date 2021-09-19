@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.patchTodo = exports.getTodos = exports.createTodo = void 0;
+exports.deleteTodo = exports.patchTodo = exports.createTodo = exports.getTodos = void 0;
 const promises_1 = require("fs/promises");
 const todo_1 = require("../models/todo");
 /*
@@ -19,6 +19,30 @@ const todo_1 = require("../models/todo");
 /*
     RequestHandler라는 @types/express에서 제공해주는 핸들러 콜백 interface가 있다.
 */
+/*
+    Generic in Request handelr: Tell ts that
+     request.params has such object key value with given type
+*/
+const getTodos = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
+        const todos = JSON.parse(db.toString());
+        if (req.params.id === undefined) {
+            return res.status(200).json(todos);
+        }
+        // passing a index would be more fast and clear to read
+        const indexOfTodo = todos.findIndex(todo => todo.id === req.params.id);
+        // -1 of index if not founded
+        if (indexOfTodo < 0) {
+            throw new Error(`Could not find a todo with given id: ${req.params.id}`);
+        }
+        return res.status(200).json({ todo: todos[indexOfTodo] });
+    }
+    catch (e) {
+        next(e);
+    }
+});
+exports.getTodos = getTodos;
 const createTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         /*
@@ -49,31 +73,6 @@ const createTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
     }
 });
 exports.createTodo = createTodo;
-/*
-    Generic in Request handelr: Tell ts that
-     request.params has such object key value with given type
-*/
-const getTodos = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
-        const todos = JSON.parse(db.toString());
-        console.log(req.params);
-        if (req.params.id === undefined) {
-            return res.status(200).json(todos);
-        }
-        // passing a index would be more fast and clear to read
-        const indexOfTodo = todos.findIndex(todo => todo.id === req.params.id);
-        // -1 of index if not founded
-        if (indexOfTodo < 0) {
-            throw new Error(`Could not find a todo with given id: ${req.params.id}`);
-        }
-        return res.status(200).json({ todo: todos[indexOfTodo] });
-    }
-    catch (e) {
-        next(e);
-    }
-});
-exports.getTodos = getTodos;
 const patchTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (req.params.id === undefined) {
@@ -99,3 +98,28 @@ const patchTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function
     }
 });
 exports.patchTodo = patchTodo;
+const deleteTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const todoId = req.params.id;
+        if (todoId === undefined) {
+            throw new Error(`No given id as url params`);
+        }
+        const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
+        const todos = JSON.parse(db.toString());
+        const indexOfTodo = todos.findIndex(todo => todo.id === todoId);
+        if (indexOfTodo < 0) {
+            throw new Error(`Could not find a todo with given id: ${todoId}`);
+        }
+        /*
+            Remove 1 element starting from indexOfTodo
+        */
+        todos.splice(indexOfTodo, 1);
+        const updatedTable = Buffer.from(JSON.stringify(todos, null, 4)); // 4 as newline
+        yield promises_1.writeFile('./src/dataBase/TODOS.json', updatedTable);
+        return res.status(200).json({ message: `Todo deleted` });
+    }
+    catch (e) {
+        next(e);
+    }
+});
+exports.deleteTodo = deleteTodo;
