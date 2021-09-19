@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createTodo, getTodos } from '../controllers/todo';
+import { createTodo, getTodos, patchTodo } from '../controllers/todo';
 
 const router = Router();
 
@@ -14,7 +14,7 @@ router.get('/', getTodos);
     자원의 일부 교체: patch
 */
 
-router.patch('/:id');
+router.patch('/:id', patchTodo);
 
 router.delete('/:id');
 

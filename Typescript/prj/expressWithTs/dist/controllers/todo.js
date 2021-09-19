@@ -13,13 +13,21 @@ exports.patchTodo = exports.getTodos = exports.createTodo = void 0;
 const promises_1 = require("fs/promises");
 const todo_1 = require("../models/todo");
 /*
+    req.params: localhost/myServer/thisisparam
+    req.query: localhost/myServer?qurey=thisisQuery
+*/
+/*
     RequestHandler라는 @types/express에서 제공해주는 핸들러 콜백 interface가 있다.
 */
-const createTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const createTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        /*
+            Type casting in ts with `as` keyword
+            type cast req.body type any to object type with string type key `text` included
+        */
         const text = req.body.text;
         if (text === undefined) {
-            return res.status(400).json({ message: "No given key value text inside body" });
+            throw new Error('Could not find text in request.body');
         }
         const newTodo = new todo_1.Todo(Math.random().toString(), text);
         const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
@@ -30,50 +38,64 @@ const createTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         return res.status(201).json({ message: 'list added successfully', todo: newTodo });
     }
     catch (e) {
-        console.log(e);
-        return res.status(400).json({ Error: e });
+        /*
+            Express doesn't support promises.
+            You have to handle caught error in catch block INSIDE OF ASYNC FuNCTION
+            OR
+            If you have middleware that deals with errors,
+            pass an error with next function
+        */
+        next(e);
     }
 });
 exports.createTodo = createTodo;
-const getTodos = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+/*
+    Generic in Request handelr: Tell ts that
+     request.params has such object key value with given type
+*/
+const getTodos = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
         const todos = JSON.parse(db.toString());
-        if (req.query.id !== undefined) {
-            const todoWithParamId = todos.find(todo => todo.id === req.query.id);
-            if (todoWithParamId === undefined) {
-                return res.status(400).json({ message: `Given todo with id: ${req.query.id} does not exist` });
-            }
-            return res.status(200).json({ todo: todoWithParamId });
+        console.log(req.params);
+        if (req.params.id === undefined) {
+            return res.status(200).json(todos);
         }
-        return res.status(200).json(todos);
+        // passing a index would be more fast and clear to read
+        const indexOfTodo = todos.findIndex(todo => todo.id === req.params.id);
+        // -1 of index if not founded
+        if (indexOfTodo < 0) {
+            throw new Error(`Could not find a todo with given id: ${req.params.id}`);
+        }
+        return res.status(200).json({ todo: todos[indexOfTodo] });
     }
     catch (e) {
-        return res.status(400).json({ Error: e });
+        next(e);
     }
 });
 exports.getTodos = getTodos;
-const patchTodo = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const patchTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        if (req.query.id === undefined) {
-            return res.status(400).json({ message: `No given query string id` });
+        if (req.params.id === undefined) {
+            throw new Error(`No given params sent to url`);
         }
         const text = req.body.text;
         if (text === undefined) {
-            return res.status(400).json({ message: "No given key value text inside body" });
+            throw new Error('Could not find text in request.body');
         }
         const db = yield promises_1.readFile('./src/dataBase/TODOS.json');
         const todos = JSON.parse(db.toString());
-        // todo: add instruction of modify object after find it
-        const todoWithParamId = todos.find(todo => todo.id === req.query.id);
-        if (todoWithParamId === undefined) {
-            return res.status(400).json({ message: `Given todo with id: ${req.query.id} does not exist` });
+        const indexOfTodo = todos.findIndex(todo => todo.id === req.params.id);
+        if (indexOfTodo < 0) {
+            throw new Error(`Could not find a todo with given id: ${req.params.id}`);
         }
-        return res.status(200).json({ todo: todoWithParamId });
-        return res.status(200).json(todos);
+        todos[indexOfTodo].text = text;
+        const updatedTable = Buffer.from(JSON.stringify(todos, null, 4)); // 4 as newline
+        yield promises_1.writeFile('./src/dataBase/TODOS.json', updatedTable);
+        return res.status(200).json({ message: `todo updated`, updatedTodo: todos[indexOfTodo] });
     }
     catch (e) {
-        return res.status(400).json({ Error: e });
+        next(e);
     }
 });
 exports.patchTodo = patchTodo;

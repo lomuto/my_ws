@@ -8,6 +8,10 @@ const todos_1 = __importDefault(require("./routes/todos"));
 const app = express_1.default();
 app.use(express_1.default.json());
 app.use('/todos', todos_1.default);
+/*
+    Error handling middleware.
+    this will handling thrown error from callback function
+*/
 app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message });
 });
