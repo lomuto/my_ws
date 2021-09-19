@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.deleteTodo = exports.patchTodo = exports.createTodo = exports.getTodos = void 0;
 const promises_1 = require("fs/promises");
 const todo_1 = require("../models/todo");
 /*
@@ -41,6 +42,7 @@ const getTodos = (req, res, next) => __awaiter(void 0, void 0, void 0, function*
         next(e);
     }
 });
+exports.getTodos = getTodos;
 const createTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         /*
@@ -70,6 +72,7 @@ const createTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         next(e);
     }
 });
+exports.createTodo = createTodo;
 const patchTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         if (req.params.id === undefined) {
@@ -94,6 +97,7 @@ const patchTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function
         next(e);
     }
 });
+exports.patchTodo = patchTodo;
 const deleteTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const todoId = req.params.id;
@@ -112,15 +116,10 @@ const deleteTodo = (req, res, next) => __awaiter(void 0, void 0, void 0, functio
         todos.splice(indexOfTodo, 1);
         const updatedTable = Buffer.from(JSON.stringify(todos, null, 4)); // 4 as newline
         yield promises_1.writeFile('./src/dataBase/TODOS.json', updatedTable);
-        return res.status(200).json({ message: `Todo deleted` });
+        return res.status(200).json({ message: `odo deleted` });
     }
     catch (e) {
         next(e);
     }
 });
-exports.default = {
-    getTodo: getTodos,
-    createTodo: createTodo,
-    patchTodo: patchTodo,
-    deleteTodo: deleteTodo
-};
+exports.deleteTodo = deleteTodo;

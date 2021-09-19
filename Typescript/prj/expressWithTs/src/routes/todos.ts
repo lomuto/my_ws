@@ -1,21 +1,21 @@
 import { Router } from 'express';
-import controller from '../controllers/todo';
+import { createTodo, getTodos, patchTodo, deleteTodo } from '../controllers/todo';
 
 const router = Router();
 
-router.post('/', controller.createTodo);
+router.post('/', createTodo);
 
-router.get('/:id', controller.getTodo);
+router.get('/:id', getTodos);
 
-router.get('/', controller.getTodo);
+router.get('/', getTodos);
 
 /*
     자원의 전체 교체: put
     자원의 일부 교체: patch
 */
 
-router.patch('/:id', controller.patchTodo);
+router.patch('/:id', patchTodo);
 
-router.delete('/:id', controller.deleteTodo);
+router.delete('/:id', deleteTodo);
 
 export default router;
