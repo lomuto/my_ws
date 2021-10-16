@@ -8,3 +8,7 @@ In Cpp, every method is default is non-virtual. So calling a overridden method i
 So, how does this virtual table works?
 
 Adding a `virtual` keyword to method will yeild a compiler to **store a memory address of virtual table to function memory** when instance is created.
+
+![ex](./img/ex.PNG)
+
+![vt](./img/vt.PNG)
