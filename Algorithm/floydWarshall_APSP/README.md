@@ -27,3 +27,10 @@ Recurrence relation would be
 ```
 grid[src][dest] = min(grid[src][dest], grid[src][wayPoint] + grid[wayPoint][dest])
 ```
+
+To check every possible waypoint, repeat those expression for every nodes.
+
+```
+for wayPoint in range(leastIndexOfNode, largestIndexOfNode+1):
+   grid[src][dest] = min(grid[src][dest], grid[src][wayPoint] + grid[wayPoint][dest])
+```
