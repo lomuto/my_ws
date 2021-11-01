@@ -2,6 +2,16 @@
 
 Java의 모든 Object를 보면 `hashCode`라는 메소드가 있다. 이는 개체 최상위 클래스인 `Object` 클래스에 정의된 함수로써 `HashMap`이나 `HashSet`과 같은 자료구조 사용 시 key값으로 사용되는 값을 리턴하는 함수이다.
 
+default로는 다음과 같이 구현되어있다.
+
+```java
+public int hashCode() {
+    return this; // 개체 주소값 리턴
+}
+```
+
+---
+
 ```java
 public class Person{
     private String firstName;
