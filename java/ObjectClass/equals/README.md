@@ -1,4 +1,39 @@
-# 개체의 비교
+# equals
+
+개체의 동일여부를 따져 `boolean`을 반환하는 메소드 이다. 오버라이딩 하지 않을 경우 (구현되어있지 않을경우) 주소값을 비교해 boolean을 리턴한다.
+
+```java
+// 기본으로 구현된 equals
+@Override
+public void equals(Obj other) {
+    return this == other;
+}
+```
+
+---
+
+내가 만든 개체의 `equals` 메소드를 정의하는 베스트 프랙티스는 다음과 같다.
+
+```java
+@Override
+public void equals(Obj other) {
+    // 주소가 같으면 바로 true
+    if(this == other) {
+        return true
+    }
+
+    // null개체거나 클래스가 같지 않으면
+    if(other == null || ! (other instanceof this.getClass()) ) {
+        return false;
+    }
+
+    // 내부 값 비교를 이제서야 수행
+    // 같은 값이면 true, 아니면 false
+    ...
+}
+```
+
+---
 
 Java에서 제공되는 `String` 클래스는 `==`으로 비교하면 주소(참조)값 비교니까 문자열을 비교하려면 `.equals(String)` 메소드 쓰는건 누구나 안다...
 
