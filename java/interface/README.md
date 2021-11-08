@@ -9,7 +9,7 @@ public static void foo(Parent p) {
 }
 
 public static void main(String args[]) {
-    Child[] children = new Child();
+    Child children = new Child();
     foo(children);
 }
 ```
