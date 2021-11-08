@@ -14,7 +14,7 @@ public static void main(String args[]) {
 }
 ```
 
-Some might argue that **Passing an instance of `Parent` seems redundant about its data(member) also goes with it, while what method `foo` does is only executing a `abstractMethod`**
+Some might argue that **Passing an instance of `Parent` seems redundant about its data(member) also goes with it, while what method `foo` only needed is `abstractMethod` not datas(members)**
 
 This is where interface comes out.
 
