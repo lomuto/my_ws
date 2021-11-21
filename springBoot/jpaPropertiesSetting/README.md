@@ -9,6 +9,6 @@ spring.jpa.show-sql=true    // displaies sql
 spring.jpa.hibernate.ddl-auto=create-drop   // 테스트 시 설정. 매 프로그램 시작마다 테이블 초기화됨
 ```
 
-![./sqlShow](./sqlShow)
+![./sqlShow.PNG](./sqlShow.PNG)
 
 `spring.jpa.show-sql = ture` 할 시 이렇게 콘솔창에 sql 쿼리문 display 해줌
