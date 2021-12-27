@@ -10,7 +10,6 @@
     <!-- Define your beans here -->
     <bean id="myCoach"
           class="com.springdemo.TrackCoach">
-
     </bean>
     
 </beans>
