@@ -17,8 +17,11 @@
           class="com.springdemo.HappyFortuneService">
     </bean>
 
+<!--  prototype scope == Generate new bean every time bean is created  -->
     <bean id="myCoach"
-          class="com.springdemo.BaseballCoach">
+          class="com.springdemo.BaseballCoach"
+          scope="prototype"
+    >
 
         <!--    Set value of name as dollar sign and curly brace ${} with name in prop    -->
         <constructor-arg name="name" value="${foo.name}"/>
