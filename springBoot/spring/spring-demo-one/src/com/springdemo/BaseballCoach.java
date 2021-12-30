@@ -35,4 +35,8 @@ public class BaseballCoach implements Coach {
     public String getDailyFortune() {
         return theFortuneService.getFortune();
     }
+
+    private static void baseBallCoachInitMethod() {
+        System.out.println("Initializing baseball coach");
+    }
 }

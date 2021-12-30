@@ -20,7 +20,7 @@
 <!--  prototype scope == Generate new bean every time bean is created  -->
     <bean id="myCoach"
           class="com.springdemo.BaseballCoach"
-          scope="prototype"
+          init-method="baseBallCoachInitMethod"
     >
 
         <!--    Set value of name as dollar sign and curly brace ${} with name in prop    -->
