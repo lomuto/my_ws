@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Load Prop file to environment-->
+    <context:property-placeholder
+        location="classpath:application.properties"/>
+
+    <!-- Define your beans here -->
+
+    <bean id="myFortuneService"
+          class="com.springdemo.HappyFortuneService">
+    </bean>
+
+    <bean id="myCoach"
+          class="com.springdemo.BaseballCoach">
+
+        <!--    Set value of name as dollar sign and curly brace ${} with name in prop    -->
+        <constructor-arg name="name" value="${foo.name}"/>
+
+        <constructor-arg name="height" value="182"/>
+        <constructor-arg value="19"/>
+        <constructor-arg ref="myFortuneService" />
+    </bean>
+
+
+</beans>
+
+
+
+
+
