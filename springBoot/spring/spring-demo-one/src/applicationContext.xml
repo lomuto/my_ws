@@ -7,6 +7,9 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--Load Prop file to environment-->
+    <context:property-placeholder
+        location="classpath:application.properties"/>
 
     <!-- Define your beans here -->
 
@@ -16,7 +19,10 @@
 
     <bean id="myCoach"
           class="com.springdemo.BaseballCoach">
-        <constructor-arg name="name" value="John"/>
+
+        <!--    Set value of name as dollar sign and curly brace ${} with name in prop    -->
+        <constructor-arg name="name" value="${foo.name}"/>
+
         <constructor-arg name="height" value="182"/>
         <constructor-arg value="19"/>
         <constructor-arg ref="myFortuneService" />
