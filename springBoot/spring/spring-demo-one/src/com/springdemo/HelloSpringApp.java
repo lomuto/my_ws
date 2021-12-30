@@ -17,6 +17,10 @@ public class HelloSpringApp {
         // call new method fortune service from bean
         System.out.println(coach.getDailyFortune());
 
+        System.out.println(((BaseballCoach)coach).getName());
+
+        System.out.println("My age is: " + ((BaseballCoach)coach).getAge());
+
         // close the context
         context.close();
     }

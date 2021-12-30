@@ -1,11 +1,29 @@
 package com.springdemo;
 
 public class BaseballCoach implements Coach {
+    private String name;
+    private int age;
+    private int height;
 
     private FortuneService theFortuneService = new HappyFortuneService();
 
-    public BaseballCoach(FortuneService theFortuneService) {
+    public BaseballCoach(String name, int age, int height, FortuneService theFortuneService) {
+        this.name = name;
+        this.age = age;
+        this.height = height;
         this.theFortuneService = theFortuneService;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getHeight() {
+        return height;
     }
 
     @Override
