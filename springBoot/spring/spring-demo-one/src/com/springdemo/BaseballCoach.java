@@ -39,4 +39,8 @@ public class BaseballCoach implements Coach {
     private static void baseBallCoachInitMethod() {
         System.out.println("Initializing baseball coach");
     }
+
+    private void baseballCoachDestroyMethod() {
+        System.out.println("When this bean destroyed?");
+    }
 }

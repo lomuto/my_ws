@@ -21,6 +21,7 @@
     <bean id="myCoach"
           class="com.springdemo.BaseballCoach"
           init-method="baseBallCoachInitMethod"
+          destroy-method="baseballCoachDestroyMethod"
     >
 
         <!--    Set value of name as dollar sign and curly brace ${} with name in prop    -->

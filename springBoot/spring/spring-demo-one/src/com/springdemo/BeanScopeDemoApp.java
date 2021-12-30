@@ -18,5 +18,7 @@ public class BeanScopeDemoApp {
         System.out.println(alphaCoach);
 
         context.close();
+
+        System.out.println("I Guess it is right after ClassPathXmlApplicationContext.close called");
     }
 }
