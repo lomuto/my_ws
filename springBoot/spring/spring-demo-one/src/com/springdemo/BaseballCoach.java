@@ -1,11 +1,22 @@
 package com.springdemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component("annotatedCoach")
 public class BaseballCoach implements Coach {
     private String name;
     private int age;
     private int height;
 
+    @Autowired
     private FortuneService theFortuneService = new HappyFortuneService();
+
+    public BaseballCoach(){}
+
+    public BaseballCoach(FortuneService theFortuneService) {
+        this.theFortuneService = theFortuneService;
+    }
 
     public BaseballCoach(String name, int age, int height, FortuneService theFortuneService) {
         this.name = name;
