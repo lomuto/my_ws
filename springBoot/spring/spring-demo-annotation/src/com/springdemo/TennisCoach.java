@@ -2,9 +2,11 @@ package com.springdemo;
 
 import org.springframework.stereotype.Component;
 
-@Component("tennisCoach")
+/*
+    Default Bean ID is same class name with lower case of first character
+ */
+@Component
 public class TennisCoach implements Coach{
-
 
 
     @Override
