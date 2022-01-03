@@ -12,13 +12,6 @@ public class TennisCoach implements Coach {
     @Autowired
     private FortuneService happyFortuneService;
 
-    public TennisCoach() {
-    }
-
-    public TennisCoach(FortuneService happyFortuneService) {
-        this.happyFortuneService = happyFortuneService;
-    }
-
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";
