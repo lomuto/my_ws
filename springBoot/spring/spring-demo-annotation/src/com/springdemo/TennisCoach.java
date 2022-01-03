@@ -1,6 +1,7 @@
 package com.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /*
@@ -10,7 +11,8 @@ import org.springframework.stereotype.Component;
 public class TennisCoach implements Coach {
 
     @Autowired
-    private FortuneService happyFortuneService;
+    @Qualifier("randomFortuneService")
+    private FortuneService fortuneService;
 
     @Override
     public String getDailyWorkout() {
@@ -18,6 +20,6 @@ public class TennisCoach implements Coach {
     }
 
     public String getFortune() {
-        return happyFortuneService.getFortune();
+        return fortuneService.getFortune();
     }
 }

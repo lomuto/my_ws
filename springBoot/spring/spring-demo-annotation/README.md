@@ -8,3 +8,10 @@ answer: [link](https://stackoverflow.com/questions/48410451/why-do-i-need-a-no-a
 간단히 설명하자면 Spring은 user가 작성한 코드의 Object들을 프로그램에서 사용하기 위해 일종의 프록시 개체를 생성한다.(여기서 말하는 프록시란 프로그램이 코드의 문맥에서 bean을 관리하지 않고 개체를 하나 만들어서 관리하기 위함의 프록시임) 그러다 보니 인자가 없는 생성자를 통해 프록시 개체를 생성하기 위해 no-args 생성자를 강제하는것!
 - 그래서 Constructor, Setter, Field injection 이 셋중 어느게 가장 좋은건가요?   
 어차피 셋 다 돌아가는건 똑같다. **팀원과 상의**해서 **일관성있는 방식**을 사용하는게 제일 좋다.
+- `@Qualifier`   
+    ``` java
+    @Autowired
+    @Qualifier("randomFortuneService")
+    private FortuneService fortuneService;
+    ```   
+  `FortuneService`를 구현한 여러 클래스 중에서 `RandomFortuneService`를 갖다 쓸꺼라고 명시적으로 Spring에게 알려줌
