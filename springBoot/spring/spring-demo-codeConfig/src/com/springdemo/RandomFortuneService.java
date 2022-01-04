@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
-@Component
 public class RandomFortuneService implements FortuneService{
     private static String[] fortuneServices = {
             "Fortune 1",

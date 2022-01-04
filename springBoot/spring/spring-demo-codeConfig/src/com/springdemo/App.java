@@ -7,6 +7,12 @@ public class App {
         AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(Config.class);
 
+        Coach coach = context.getBean("tennisCoach", TennisCoach.class);
 
+        System.out.println(coach.getDailyWorkout());
+
+        System.out.println(coach.getFortune());
+
+        context.close();
     }
 }

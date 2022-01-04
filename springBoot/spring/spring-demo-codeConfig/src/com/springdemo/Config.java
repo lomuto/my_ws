@@ -1,12 +1,15 @@
 package com.springdemo;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan("com.springdemo")
 public class Config {
-    public static void main(String[] args) {
-
+    @Bean
+    public FortuneService randomFortuneService() {
+        return new RandomFortuneService();
     }
+
 }
