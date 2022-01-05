@@ -13,6 +13,8 @@ public class App {
 
         System.out.println(coach.getFortune());
 
+        System.out.println(String.format("name: %s", ((TennisCoach)coach).getName()));
+
         context.close();
     }
 }
