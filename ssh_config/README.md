@@ -7,13 +7,14 @@
      
 - 클라이언트   
   1. `$HOME/.ssh` 으로 매핑된 경로에 비밀키를 위치
-  2. `$ scp ${공개키의 절대경로} ${remote host 이름}@${remote host ipaddr}:${공개키 이름}` 으로 클라이언트에서 원격으로 공개키를 등록.   
-    `$ ssh-id-copy` 는 connection refuse되거나 temporaraily unavailable 떠서 관뒀음   
+  2. `$ scp ${공개키의 절대경로} ${remote host 이름}@${remote host ipaddr}:${공개키 이름}` 으로 클라이언트에서 원격으로 공개키를 등록. 이 경우 추가적인 설정이 필요  
+    `$ ssh-id-copy` 는 connection refuse되거나 temporaraily unavailable 떠서 관뒀음. 이 방식으로 하면 한번에 등록 가능   
    
 <br/>
 
 - 서버   
-  `/etc/ssh/sshd_config` 보안을 위해 파일을 다음과 같이 수정
+  1. 클라이언트로부터 `scp` 를 통해 공개키를 받았으면 `$HOME/.ssh/authorized_keys` 로 공개키를 옮겨야함   
+  2. `/etc/ssh/sshd_config` 보안을 위해 파일을 다음과 같이 수정
   ``` conf
   # 기본 port는 22로 되어있지만 브루트포스 방지를 위해 수정 권장
   Port 22120
