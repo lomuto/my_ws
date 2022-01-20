@@ -4,4 +4,8 @@ Authentication: 내가 이러이러한 사람이다라고 주장할때 이를 �
 Authorization: 내가 나인거는 통과했고 이제 내가 어떤 행동을 하고싶은데 그 행동을 할 권한이 있는지 확인하는것   
    
 ![img](./aa.PNG)   
-[ref: amigos youtube](https://www.youtube.com/watch?v=VVn9OG9nfH0&t=5658s)
+[ref: amigos youtube](https://www.youtube.com/watch?v=VVn9OG9nfH0&t=5658s)   
+   
+</br>   
+   
+- OAUTH란? third party 로그인을 위한 표준 프로토콜
