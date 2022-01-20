@@ -1,9 +1,9 @@
 # 20 Jan 2022   
    
-Authentication: 내가 이러이러한 사람이다라고 주장할때 이를 확인하는 것.   
+- Authentication: 내가 이러이러한 사람이다라고 주장할때 이를 확인하는 것.   
 Authorization: 내가 나인거는 통과했고 이제 내가 어떤 행동을 하고싶은데 그 행동을 할 권한이 있는지 확인하는것   
    
-![img](./aa.PNG)   
+    ![img](./aa.PNG)   
 [ref: amigos youtube](https://www.youtube.com/watch?v=VVn9OG9nfH0&t=5658s)   
    
 </br>   
