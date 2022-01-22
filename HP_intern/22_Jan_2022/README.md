@@ -51,4 +51,16 @@
 ## @NotNull @NotEmpty @NotBlank   
    
 TDD 해보니까 이런게 잡히네.. TDD 짱짱...   
-`@Email` 로 `BaseUser` Document의 email 키값을 검증하려고 테스트 코드를 짰는데 null 값을 넣으니까 `@Email` 이 그냥 문제제기를 안한것.. 
+`@Email` 로 `BaseUser` Document의 email 키값을 검증하려고 테스트 코드를 짰는데 null 값을 넣으니까 `@Email` 이 그냥 문제제기를 안한것.. 다시보니까 얘는 **null**, **empty string** 검사를 안했다.   
+그래서 얘네를 잡을라고 보니까 `@NotNull` `@NotEmpty` `@NotBlank` 이렇게 비슷하면서 다른 3가지가 있더라...   
+   
+- `@NotNull`: 말그대로 null을 잡는 애   
+- `@NotEmpty`: null을 포함한 `""` 형태의 `String` 인 빈 문자열 잡음
+- `@NotBlank`: 상기 언급한 두개 + `" "` 형태의 공백 문자열까지 잡음   
+
+그럼 `@Email` 은 누구랑 같이 써야할까?   
+`" "` 과 같은 공백문자열은 `@Email` 에서 잡아주므로 `@NotEmpty`와 같이 쓰면 된다.   
+   
+\+ 추가   
+문자열 길이 잡는 `@Size` 도 `null`은 못잡음.    
+`@NotNull @Size(min = n)` 이렇게 해줘야함
