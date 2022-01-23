@@ -1,7 +1,5 @@
 # 23 Jan 2022   
-   
-이더리움을 개당 300만원 가격으로 샀다.   
-세일하길래 샀는데 바닥 밑의 지하실을 구경중이다   
+
    
 ## _IMPORTANT_ Service Layer Test With Mockito   
 기존에 짰던 Service Layer 테스트는 Spring Boot Test로 실제 프로그램 구동 환경에서 테스트가 돌아가는것이어서 data base 에 실제 mock data 가 삽입되고 이걸 `@AfterEach` 로 일일이 삭제를 해주는 번거로움에 더해 **테스트 만을 위한 컨테이너 초기화가 아니라 전체 프로그램을 위한 초기화가 진행되면서 너무 무겁고 느렸다**   
