@@ -53,6 +53,9 @@ public interface BaseUserService{
 
 `setRoleToBaseUser` 테스트를 하면 get과 save 테스트는 따로 안해도 되는걸까?
    
+-> **일단 테스트 코드 작성하면서 느끼는점이 더 중요하다. 디테일한거에 집중하기보다는 구현 우선으로**
+
+   
 
 </br>   
    
