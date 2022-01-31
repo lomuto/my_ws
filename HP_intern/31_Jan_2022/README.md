@@ -38,4 +38,17 @@ println(
 처음에는 알아먹는데 시간이 좀 걸렸는데 익숙해지면 편할 것 같다.   
 it가 joinToString 메소드 실행 시 각각의 원소들에 대해 map 메소드를 실행한거랑 같음. transform function   
    
-![img](./Capture.PNG)
+![img](./Capture.PNG)   
+   
+</br>   
+   
+## Unit 과 Nothing (Java의 void)   
+   
+kotlin에서 void 를 반환하는 함수의 리턴타입을 지정해주려고 보니 Void 라는게 코틀린에는 없었다. 대신에 Kotlin은 `Unit`을 지원한다.   
+`Unit`은 `참조되는 값 이다`. Java에서는 값형인 `void`, 참조형인 `Void`이 두개가 있었는데 Kotlin에서는 이 두개를 참조형으로 하나로 묶은것이다.   
+Unit은 싱글던 개체이다.   
+   
+그럼 `Nothing`은 뭘까.. `Nothing`은 무엇도 리턴하지 않는다는뜻이다.   
+무엇도 리턴하지 않는다는게 무슨뜻인가... 보통은 그럴때 void(Unit)를 리턴하지 않나?   
+말 그대로 함수가 Unit이라도 리턴을 하는게 아니라 `아무것도 반환하지 않는 == 리턴되지 않는 == 종료되지 않는` 을 명시적으로 나타낸 것 이다.   
+이러한 함수로는 무한 loop을 도는 함수거나 exception을 던지는 함수가 있다.
