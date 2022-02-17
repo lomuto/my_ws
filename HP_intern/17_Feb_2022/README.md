@@ -4,7 +4,7 @@
 
 ## interface 꼭 만들어라..   
      
-service layer 뿐만 아니라 Controller도 interface 만들고 impl로 구현해라. 왜?    
+service layer는 꼭 impl로 구현해라. 왜?    
    
 1. 가독성이 좋아진다. 스프링 5.1 부터 Controller에 붙은 어노테이션도 interface 에 붙여도 적용이 된다. `@RestController`부터 `@PathVariable`까지... impl에서는 덕지덕지 붙은 어노테이션이 없으니 로직만 깔끔하게 보이고 읽기 편하다.   
    
