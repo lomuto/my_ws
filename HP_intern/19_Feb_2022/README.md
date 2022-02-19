@@ -10,4 +10,17 @@ cors 설정을 이전에 잘 해주고 post 잘 쏘다가 갑자기 delte 하니
 ```   
    
 이렇게 allowMethods("*") 을 통해 모든 메소드 허용을 해주었다.   
-만약 `.allowedMethods("DELETE")` 만 해주면 말 그대로 delete 메소드만 허용해주고 나머지는 block 되니깐 전부 해줘야한다.
+만약 `.allowedMethods("DELETE")` 만 해주면 말 그대로 delete 메소드만 허용해주고 나머지는 block 되니깐 전부 해줘야한다.   
+   
+## Mock 개체 행동 설정  
+   
+`Mockito.when(mockObj.dosomething()).thenReturn(something)` 이렇게 뭔가를 리턴하게 해줄 수 있는데 행동 설정은 어떻게 해줄 수 있을까....   
+   
+``` java   
+doAnswer(invocation -> {
+    Object[] args = invocation.getArguments();
+    ...
+}).when(mockObj).doSomething();
+```   
+   
+이렇게 설정해줄 수 있다.
