@@ -23,4 +23,4 @@ doAnswer(invocation -> {
 }).when(mockObj).doSomething();
 ```   
    
-이렇게 설정해줄 수 있다.
+이렇게 설정해줄 수 있다.   
