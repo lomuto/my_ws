@@ -97,4 +97,19 @@ fun method(): Foo = object: Foo {
 }  
 ```   
    
-문법이 좀 특이하다. 어쨋든 object를 통해 인터페이스의 구현체를 inline으로 만든다 보면 될 것 같다.
+문법이 좀 특이하다. 어쨋든 object를 통해 인터페이스의 구현체를 inline으로 만든다 보면 될 것 같다.   
+   
+## 동일 타입 이름이 다른 bean   
+   
+`expected single matching bean but found 4` 라는 오류를 만났다.   
+무슨말인고 하니 주입해주려고 보니까 타입이 같은데 이름이 달라서 뭘 주입해야하나 모르겠다.. 이런뜻   
+   
+Constructor 가 아니라 `@Autowired`로 Setter 주입을 해주면 type이 같아도 이름대로 알아서 넣어준다고 한다.   
+   
+`@Autowired`에서 생서자 주입으로 갈아타다가 생긴 문제.     
+   
+## Circular Dependency   
+   
+CORS 관련 config bean을 Sercurity config 클래스 안의 bean으로 설정했는데 (security 관련 코드를 하나로 모으고 싶어서) circular dependecy 가 발생했다.    
+   
+CORS 빈을 다른 클래스에서 설정해주니 해결
