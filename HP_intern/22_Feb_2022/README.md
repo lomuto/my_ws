@@ -68,4 +68,33 @@ assertThatThrownBy { deviceGenService.createDevice(DeviceAttributeDto()).block()
     .hasMessageContaining("400 error")
 ```   
    
-이렇게 에러처리에 대한 검증또한 간단하다...
+이렇게 에러처리에 대한 검증또한 간단하다...   
+   
+## 코틀린 인터페이스 inline 에서 구현하기   
+   
+Foo 라는 인터페이스의 구현체를 리턴하는 함수 `method` 가 있다고 해보자.   
+이 Foo가 `bar` 라는 메소드를 강요할 때   
+   
+``` java
+public Foo method() {
+    return Foo() {
+        @Override
+        public void bar() {
+            ...
+        }
+    }
+}
+```   
+   
+자바는 이렇게 쓴다.   
+코틀린은??   
+   
+``` kt
+fun method(): Foo = object: Foo {
+    override fun bar(): Unit {
+        ...
+    }
+}  
+```   
+   
+문법이 좀 특이하다. 어쨋든 object를 통해 인터페이스의 구현체를 inline으로 만든다 보면 될 것 같다.
