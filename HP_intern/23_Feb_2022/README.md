@@ -14,7 +14,7 @@
    
 동기식으로 작성한 코드를 이렇게 바꿔봤다.   
 이렇게 하니 await 다음에 doNext 가 없다고 에러가 나더라.   
-   
+
 ``` kt
 .awaitExchange<List<ProgramIdLocalDto>> { response ->
     if (response.statusCode().value() >= 204) {
@@ -23,7 +23,19 @@
 }
 ```   
    
-이렇게 throw 하고 controllerAdvice 에서 `WebCliemtResponseException` 핸들링 해주면 끝나더라...   
+~~이렇게 throw 하고 controllerAdvice 에서 `WebCliemtResponseException` 핸들링 해주면 끝나더라...~~   
+   
+``` kt
+.awaitExchange<List<ProgramIdLocalDto>> { response ->
+    if (response.statusCode().value() >= 204) {
+        val errorResponse = response.createExceptionAndAwait()
+        throw CustomException(errorResponse.responseBodyAsString, errorResponse.statusCode)
+    }
+}
+```   
+   
+이렇게 기다렸다가 에러 응답을 받아서 커스텀한 예외로 던질 수 있다.   
+이렇게 해야지 의존하는 서버의 에러 메세지를 제대로 보여줄 수 있음
   
 ## List\<List<String\>\> 의 함수형 프로그래밍으로 Set\<String\> 으로 바꾸기   
    
@@ -55,7 +67,7 @@ return webClient.get()
     }
     .map { programLocalDto ->
         programLocalDto.supportCountryList.map { country ->
-            country.lowercase(Locale.ROOT)
+            country.lowercase(Locale.ROOT)  // 소문자로
         }
     }.reduceRight { accu, s -> accu + s }   // list들 하나로 합치기
     .toSet()    // 중복제거
